@@ -1,3 +1,5 @@
+package Pertemuan_2_10_Desember_2023;
+
 public class basic {
 
     public static void main(String args[]){

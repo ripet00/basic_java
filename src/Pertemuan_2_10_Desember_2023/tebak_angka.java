@@ -1,3 +1,5 @@
+package Pertemuan_2_10_Desember_2023;
+
 import java.util.Scanner; // digunakan setiap kali menginput sesuatu
 import java.util.Random;
 
