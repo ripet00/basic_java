@@ -43,5 +43,6 @@ public class input_output {
         }
 
         System.out.println();
+        scan.close();
     }
 }
