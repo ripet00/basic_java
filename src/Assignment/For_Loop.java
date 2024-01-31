@@ -1,10 +1,10 @@
-package FlowControl_ForLooping_DoWhile;
+package Assignment;
 import java.util.Scanner;
 
-public class Perfect_Number {
+public class For_Loop {
     private static Scanner scan;
+
     public static void main(String[] args) {
-        
         scan = new Scanner(System.in);
 
         while (true) {
@@ -17,20 +17,19 @@ public class Perfect_Number {
             }
 
             i = 1;
-            
+
             do {
-                if (number % i ==0) {
+                if (number % i == 0) {
                     sum += i;
                 }
-                i++; // iteration
+                i++;
             } while (i < number);
 
             if (sum == number) {
                 System.out.println(number + " is a perfect number");
             } else {
-                System.out.println(number + " Isn't a perfect number");
+                System.out.println(number + " isn't a perfect number");
             }
         }
-        
     }
 }
