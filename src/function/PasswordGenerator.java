@@ -45,12 +45,27 @@ public class PasswordGenerator {
 
         System.out.print("Do you want to use lower case (y / n) : ");
         boolean lowerCase = scan.nextLine().equalsIgnoreCase("y");
+        if (!lowerCase && !scan.nextLine().equalsIgnoreCase("n")) {
+            lowerCase = false; // Assuming default behavior is to use lower case
+        }
+
         System.out.print("Do you want to use upper case (y / n) : ");
         boolean upperCase = scan.nextLine().equalsIgnoreCase("y");
+        if (!upperCase && !scan.nextLine() .equalsIgnoreCase("n")) {
+            upperCase = false;
+        }
+
         System.out.print("Do you want to use digits (y / n) : ");
         boolean digits = scan.nextLine().equalsIgnoreCase("y");
+        if (!digits && !scan.nextLine() .equalsIgnoreCase("n")) {
+            digits = false;
+        }
+
         System.out.print("Do you want to use special character (y / n) : ");
         boolean specialCharacter = scan.nextLine().equalsIgnoreCase("y");
+        if (!specialCharacter && !scan.nextLine() .equalsIgnoreCase("n")) {
+            specialCharacter = false;
+        }
 
         String password = generatePassword(length, lowerCase, upperCase, digits, specialCharacter);
 
