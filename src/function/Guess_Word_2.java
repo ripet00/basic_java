@@ -25,26 +25,14 @@ public class Guess_Word_2 {
 
         // Looping
         while (chances > 0) {
-            // Input letter
-            System.out.print("Guess a letter of the word: ");
-            String guess = scanner.nextLine().toLowerCase(); // Converting to lowercase for case-insensitivity
-
+            String guess = inputletter(scanner);
             // add the letter to the string
             guessedLetters += guess;
 
             // check the word
-            boolean wrong = true;
+            boolean wrong = check(word, guessedLetters);
 
-            // Iterating through each letter in the word
-            for (char letter : word.toCharArray()) {
-                // Checking if the letter is in guessedLetters
-                if (guessedLetters.contains(String.valueOf(letter))) {
-                    System.out.print(letter + " ");
-                } else {
-                    System.out.print("_ ");
-                    wrong = false;
-                }
-            }
+            
 
             System.out.println(); // Move to the next line
 
@@ -66,5 +54,27 @@ public class Guess_Word_2 {
                 }
             }
         }
+    }
+
+    private static String inputletter(Scanner tebak) {
+        // Input letter
+        System.out.print("Guess a letter of the word: ");
+        return scanner.nextLine().toLowerCase();
+    }
+
+    private static boolean check(String word, String guessedLetters) {
+        boolean wrong = true;
+
+        // Iterating through each letter in the word
+        for (char letter : word.toCharArray()) {
+            // Checking if the letter is in guessedLetters
+            if (guessedLetters.contains(String.valueOf(letter))) {
+                System.out.print(letter + " ");
+            } else {
+                System.out.print("_ ");
+                wrong = false;
+            }
+        }
+        return wrong;
     }
 }
