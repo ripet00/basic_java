@@ -8,11 +8,11 @@ public class Loops_Statements_While_Loops {
         scan = new Scanner(System.in);
 
         System.out.print("Enter number : ");
-        int number = scan.nextInt();
+        int n = scan.nextInt();
 
         int first = 0, second = 1, count = 0;
 
-        while (count < number) {
+        while (count < n) {
             System.out.print(first +" ");
 
             int next = first + second;
