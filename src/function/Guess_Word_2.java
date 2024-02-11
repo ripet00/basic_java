@@ -32,8 +32,6 @@ public class Guess_Word_2 {
             // check the word
             boolean wrong = check(word, guessedLetters);
 
-            
-
             System.out.println(); // Move to the next line
 
             // check the letter (correct)
