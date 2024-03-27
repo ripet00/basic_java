@@ -4,15 +4,23 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProjectManagementSystem {
+    private static Scanner scan;
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(System.in);
+        // add input to project manager
+        Project_Manager projectManager = new Project_Manager();
 
-        // input task
+
+        boolean addmoredata = true;
+
+        while (addmoredata) {
+            // input task
         System.out.print("Enter task name:");
         String taskName = scan.nextLine();
         System.out.print("Enter task description:");
         String taskDescription = scan.nextLine();
         Task task = new Task(taskName, taskDescription);
+        projectManager.addTask(task);
 
         // input resource
         System.out.print("Enter resource name:");
@@ -20,26 +28,27 @@ public class ProjectManagementSystem {
         System.out.print("Enter resource description:");
         String resourceDescription = scan.nextLine();
         Resource resource = new Resource(resourceName, resourceDescription);
-
+        projectManager.addResource(resource);
         // input team
         System.out.print("Enter team member name:");
         String teamMemberName = scan.nextLine();
         System.out.print("Enter team member role:");
         String teamMemberRole = scan.nextLine();
         Team_Member teamMember = new Team_Member(teamMemberName, teamMemberRole);
-
-        // add input to project manager
-        Project_Manager projectManager = new Project_Manager();
-        projectManager.addTask(task);
-        projectManager.addResource(resource);
         projectManager.addTeam_Member(teamMember);
 
-        // output
+        System.out.print("Do you want to add more data (yes / no) ? ");
+        String choice = scan.nextLine();
+        addmoredata = choice.equalsIgnoreCase("Yes");
+        }
+
+
+        System.out.println("----------------");
+        System.out.println("Display all the project");
         projectManager.displayAllTasks();
         projectManager.displayAllResources();
         projectManager.displayAllTeamMembers();
 
-        scan.close(); 
     }
 }
 

@@ -81,26 +81,56 @@ public class schoolmanagementsystem {
         SchoolManager school = new SchoolManager();
 
         // Adding sample school members
-        school.addMember(new Student("John", 10));
-        school.addMember(new Teacher("Jane", "Mathematics"));
+        boolean addData = true;
 
-        // Displaying menu
-        System.out.println("Welcome to the school management system");
-        System.out.println("1. Display all members");
-        System.out.println("2. Exit");
-        System.out.print("Enter your choice: ");
-        int choice = scan.nextInt();
+        while (addData) {
+            // input student
+            System.out.println("Enter student name : " );
+            String studentname = scan.nextLine();
+            System.out.println("Enter student grade : ");
+            int nilai = scan.nextInt();
+            Student siswa = new Student(studentname, nilai);
+            school.addMember(siswa);
 
-        switch (choice) {
-            case 1:
-                school.displayAllMembers();
-                break;
-            case 2:
-                System.out.println("Thank you for using the school management system");
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Invalid choice");
+            scan.nextLine();
+            // input Teacher
+            System.out.println("Enter teacher name : ");
+            String teachername = scan.nextLine();
+            System.out.println("Subject lesson : ");
+            String matkul = scan.nextLine();
+            Teacher guru = new Teacher(teachername, matkul);
+            school.addMember(guru);
+
+            System.out.print("Do you want to add more data? (0/1): ");
+            int choice = scan.nextInt();
+            addData = (choice == 1);
+
         }
+
+    
+        System.out.println("==============================");
+        System.out.println("Thise is the information");
+        school.displayAllMembers();
+
+        scan.close();
+
+        // // Displaying menu
+        // System.out.println("Welcome to the school management system");
+        // System.out.println("1. Display all members");
+        // System.out.println("2. Exit");
+        // System.out.print("Enter your choice: ");
+        // int choice = scan.nextInt();
+
+        // switch (choice) {
+        //     case 1:
+        //         school.displayAllMembers();
+        //         break;
+        //     case 2:
+        //         System.out.println("Thank you for using the school management system");
+        //         System.exit(0);
+        //         break;
+        //     default:
+        //         System.out.println("Invalid choice");
+        // }
     }
 }
